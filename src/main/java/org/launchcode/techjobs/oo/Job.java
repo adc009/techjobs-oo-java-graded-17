@@ -52,6 +52,8 @@ public class Job {
 
     // TODO: Add getters for each field EXCEPT nextId. Add setters for each field EXCEPT nextID
     //  and id.
+
+    public int getId() {return id;}
     public String getName() {
         return name;
     }
@@ -90,6 +92,62 @@ public class Job {
 
     public void setCoreCompetency(CoreCompetency coreCompetency) {
         this.coreCompetency = coreCompetency;
+    }
+
+    public String toString() {
+
+
+        String name;
+            if (this.getName() == null || this.getName().isEmpty()) {
+                name = "Data not available";
+            }
+            else {
+                name = this.getName();
+            }
+
+        String employer;
+            if (this.getEmployer() == null || this.getEmployer().getValue().isEmpty()) {
+                employer = "Data not available";
+            }
+            else {
+                employer = this.getEmployer().getValue();
+            }
+        String location;
+            if (this.getLocation() == null || this.getLocation().getValue().isEmpty() ) {
+                location = "Data not available";
+            }
+            else {
+                location = this.getLocation().getValue();
+            }
+        String type;
+            if ( this.getPositionType() == null || this.getPositionType().getValue().isEmpty()) {
+                type = "Data not available";
+            }
+            else {
+                type = this.getPositionType().getValue();
+            }
+        String comp;
+            if ( this.getCoreCompetency() == null ||this.getCoreCompetency().getValue().isEmpty()) {
+                comp = "Data not available";
+            }
+            else {
+                comp = this.getCoreCompetency().getValue();
+            }
+
+        //Add new line at beginning
+        String outputString = System.lineSeparator();
+
+        outputString = outputString.concat("ID: " + this.getId());
+        outputString = outputString.concat(System.lineSeparator() + "Name: " + name);
+        outputString = outputString.concat(System.lineSeparator() + "Employer: " + employer);
+        outputString = outputString.concat(System.lineSeparator() + "Location: " + location);
+        outputString = outputString.concat(System.lineSeparator() + "Position Type: " + type);
+        outputString = outputString.concat(System.lineSeparator() + "Core Competency: " + comp);
+
+        //Add new line at end
+        outputString = outputString.concat(System.lineSeparator());
+
+        return outputString;
     }
 
 }
